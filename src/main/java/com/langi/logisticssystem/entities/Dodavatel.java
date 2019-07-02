@@ -40,6 +40,12 @@ public class Dodavatel implements Serializable {
     
     @OneToMany(mappedBy = "dodavatelNaAdrese")
     private List<Adresa> adresy;
+    
+    @OneToMany(mappedBy = "dodavatelDodavky")
+    private List<Dodavka> dodavky;
+    
+    @OneToMany(mappedBy = "dodavatelProduktu")
+    private List<Produkt> produkty;
 
     
     public long getId() {
@@ -80,6 +86,22 @@ public class Dodavatel implements Serializable {
 
     public void setAdresy(List<Adresa> adresy) {
         this.adresy = adresy;
+    }
+
+    public List<Dodavka> getDodavky() {
+        return dodavky;
+    }
+
+    public void setDodavky(List<Dodavka> dodavky) {
+        this.dodavky = dodavky;
+    }
+
+    public List<Produkt> getProdukty() {
+        return produkty;
+    }
+
+    public void setProdukty(List<Produkt> produkty) {
+        this.produkty = produkty;
     }
     
     

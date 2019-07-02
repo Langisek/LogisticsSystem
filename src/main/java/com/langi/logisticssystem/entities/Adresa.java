@@ -27,19 +27,19 @@ public class Adresa implements Serializable {
     @Column (name = "Id", nullable = false)
     private long id;
     
-    @Column (name = "Ulice", nullable = true)
+    @Column (name = "Ulice", nullable = false)
     private String ulice;
     
-    @Column (name = "Nazev", nullable = true)
+    @Column (name = "Nazev", nullable = false)
     private String cisloPopisne;
     
-    @Column (name = "Nazev", nullable = true)
+    @Column (name = "Nazev", nullable = false)
     private String mesto;
     
-    @Column (name = "Nazev", nullable = true)
+    @Column (name = "Nazev", nullable = false)
     private String postovniCislo;
     
-    @Column (name = "Nazev", nullable = true)
+    @Column (name = "Nazev", nullable = false)
     private String stat;
     
     @ManyToOne(optional = true)

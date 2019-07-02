@@ -11,6 +11,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,7 +23,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "DODAVKY")
-public class Dodavky implements Serializable{
+public class Dodavka implements Serializable{
     
     @Id
     @GeneratedValue
@@ -39,6 +41,11 @@ public class Dodavky implements Serializable{
     
     @Temporal(TemporalType.TIME)
     private Date casPrijato;
+    
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "dodavatel_dodavky", nullable = true)
+    private Dodavatel dodavatelDodavky;
+    
 
     public long getId() {
         return id;
@@ -78,6 +85,14 @@ public class Dodavky implements Serializable{
 
     public void setCasPrijato(Date casPrijato) {
         this.casPrijato = casPrijato;
+    }
+    
+    public Dodavatel getDodavatelDodavky() {
+        return dodavatelDodavky;
+    }
+
+    public void setDodavatelDodavky(Dodavatel dodavatelDodavky) {
+        this.dodavatelDodavky = dodavatelDodavky;
     }
     
 }

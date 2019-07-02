@@ -5,32 +5,29 @@
  */
 package com.langi.logisticssystem.entities;
 
-import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author david.langer
  */
-@Entity
-@Table(name = "PRODUKTY")
-public class Produkty implements Serializable {
+public class OdeslanyProdukt {
     
     @Id
     @GeneratedValue
     @Column (name = "Id", nullable = false)
     private long id;
     
-    @Column (name = "Nazev", nullable = false)
-    private String nazev;
+    @OneToOne(mappedBy = "odeslanyProdukt")
+    private Produkt produkt;
     
-    @Column (name = "Popis", nullable = false)
-    private String popis;
+    @Column (name = "Mnozstvi", nullable = false)
+    private int mnozstvi;
     
-    @Column (name = "Cena", nullable = false)
-    private int cena;
+    
 }
