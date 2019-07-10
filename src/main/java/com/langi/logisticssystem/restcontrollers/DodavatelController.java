@@ -5,12 +5,15 @@
  */
 package com.langi.logisticssystem.restcontrollers;
 
-import com.langi.logisticssystem.entities.Dodavatel;
-import com.langi.logisticssystem.repositories.DodavatelRepository;
+import com.langi.logisticssystem.business.service.api.DodavatelService;
+import com.langi.logisticssystem.dto.DodavatelBean;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,12 +24,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class DodavatelController {
     
     @Autowired
-    DodavatelRepository dodavatelRepository;
+    private DodavatelService dodavatelService;
     
-    @PostMapping("/dodavatele")
-    private long saveDodavatel(@RequestBody Dodavatel dodavatel)
+    @RequestMapping(value = "/dodavatele/vytvorit", method = RequestMethod.POST)
+    public ResponseEntity<DodavatelBean> saveDodavatel(@RequestBody DodavatelBean dodavatel)
     {
-        dodavatelRepository.save(dodavatel);
-        return dodavatel.getId();
+        System.out.println("nazev je: " + dodavatel.getNazev());
+        DodavatelBean dodavatelBean = dodavatelService.vytvorDodavatele(dodavatel);
+        return new ResponseEntity<>(dodavatelBean, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/dodavatele/seznam", method = RequestMethod.GET)
+    public ResponseEntity<List<DodavatelBean>> vypisSeznamDodavatelu()
+    {
+        return new ResponseEntity<>(dodavatelService.vypisSeznamDodavatelu(), HttpStatus.OK);
     }
 }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.langi.logisticssystem.business.service.implementation;
+package com.langi.logisticssystem.business.service.api;
 
 /**
  *
  * @author david.langer
  */
-public class AdresaServiceImpl {
+public interface PobockaService {
     
 }

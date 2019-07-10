@@ -6,14 +6,12 @@
 package com.langi.logisticssystem.entities;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,7 +19,7 @@ import javax.persistence.Table;
  * @author david.langer
  */
 @Entity
-@Table(name = "PRODUKTY")
+@Table(name = "PRODUKT")
 public class Produkt implements Serializable {
     
     @Id
@@ -41,10 +39,6 @@ public class Produkt implements Serializable {
     @ManyToOne(optional = true)
     @JoinColumn(name = "dodavatel_produktu", nullable = true)
     private Dodavatel dodavatelProduktu;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "odeslany_produkt_id", referencedColumnName = "Id")
-    private OdeslanyProdukt odeslanyProdukt;
 
     public long getId() {
         return id;

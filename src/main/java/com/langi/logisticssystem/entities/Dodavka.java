@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
  * @author david.langer
  */
 @Entity
-@Table(name = "DODAVKY")
+@Table(name = "DODAVKA")
 public class Dodavka implements Serializable{
     
     @Id

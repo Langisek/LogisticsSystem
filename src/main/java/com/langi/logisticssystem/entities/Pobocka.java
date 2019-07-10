@@ -19,8 +19,8 @@ import javax.persistence.Table;
  * @author david.langer
  */
 @Entity
-@Table(name = "ADRESA")
-public class Adresa implements Serializable {
+@Table(name = "POBOCKA")
+public class Pobocka implements Serializable {
     
     @Id
     @GeneratedValue
@@ -30,19 +30,19 @@ public class Adresa implements Serializable {
     @Column (name = "Ulice", nullable = false)
     private String ulice;
     
-    @Column (name = "Nazev", nullable = false)
+    @Column (name = "CisloPopisne", nullable = false)
     private String cisloPopisne;
     
-    @Column (name = "Nazev", nullable = false)
+    @Column (name = "Mesto", nullable = false)
     private String mesto;
     
-    @Column (name = "Nazev", nullable = false)
+    @Column (name = "PostovniCislo", nullable = false)
     private String postovniCislo;
     
-    @Column (name = "Nazev", nullable = false)
+    @Column (name = "Stat", nullable = false)
     private String stat;
     
     @ManyToOne(optional = true)
-    @JoinColumn(name = "dodavatel_na_adr_id", nullable = true)
-    private Dodavatel dodavatelNaAdrese;
+    @JoinColumn(name = "dodavatel_na_pob_id", nullable = true)
+    private Dodavatel dodavatelNaPobocce;
 }

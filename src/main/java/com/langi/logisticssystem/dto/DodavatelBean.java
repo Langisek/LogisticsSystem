@@ -3,59 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.langi.logisticssystem.entities;
+package com.langi.logisticssystem.dto;
 
-import java.io.Serializable;
+import com.langi.logisticssystem.entities.Pobocka;
+import com.langi.logisticssystem.entities.Dodavka;
+import com.langi.logisticssystem.entities.Produkt;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 /**
  *
  * @author david.langer
  */
-@Entity
-@Table(name = "DODAVATEL")
-public class Dodavatel implements Serializable {
+public class DodavatelBean {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="dodavatel_generator")
-    @SequenceGenerator(name="dodavatel_generator", sequenceName="DODAVATEL_SEKVENCE")
-    @Column (name = "Id", nullable = false)
     private long id;
-    
-    @Column (name = "Nazev")
+   
     private String nazev;
     
     private String telefon;
     
     private String email;
-    
-    private String uliceSidla;
-    
-    private String cisloPopisneSidla;
-    
-    private String mestoSidla;
-    
-    private String postovniCisloSidla;
-    
-    private String statSidla;
 
-    @OneToMany(mappedBy = "dodavatelNaPobocce")
+    private String uliceSidla;
+
+    private String cisloPopisneSidla;
+
+    private String mestoSidla;
+
+    private String postovniCisloSidla;
+
+    private String statSidla;
+    
     private List<Pobocka> pobocky;
     
-    @OneToMany(mappedBy = "dodavatelDodavky")
     private List<Dodavka> dodavky;
     
-    @OneToMany(mappedBy = "dodavatelProduktu")
     private List<Produkt> produkty;
-
+    
     
     public long getId() {
         return id;
@@ -152,6 +136,4 @@ public class Dodavatel implements Serializable {
     public void setProdukty(List<Produkt> produkty) {
         this.produkty = produkty;
     }
-    
-    
 }

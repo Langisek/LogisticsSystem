@@ -5,26 +5,21 @@
  */
 package com.langi.logisticssystem.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 /**
  *
  * @author david.langer
  */
-public class OdeslanyProdukt {
+public class OdeslanyProdukt extends Produkt{
     
     @Id
     @GeneratedValue
     @Column (name = "Id", nullable = false)
     private long id;
-    
-    @OneToOne(mappedBy = "odeslanyProdukt")
-    private Produkt produkt;
     
     @Column (name = "Mnozstvi", nullable = false)
     private int mnozstvi;
