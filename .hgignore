@@ -1,5 +1,5 @@
 syntax: glob
-*/target/*
+target/*
 nb-configuration.xml
 nbactions.xml
 profiles.xml
@@ -31,3 +31,4 @@ dev/aisp/rpp-ais-p-frontend/.vscode/launch.json
 */.idea/
 .idea/*/
 .idea/
+HELP.md
