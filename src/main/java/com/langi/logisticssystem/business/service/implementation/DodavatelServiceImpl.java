@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.langi.logisticssystem.repositories.DodavatelRepository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -51,5 +52,27 @@ public class DodavatelServiceImpl implements DodavatelService {
         }
         
         return dodavateleBean;
+    }
+
+    @Override
+    public DodavatelBean vypisDodavatele(Long idDodavatel) {
+        
+        Dodavatel dodavatel = getDodavatel(idDodavatel);
+        DodavatelBean mappedDodavatel = new DodavatelBean();
+        BeanUtils.copyProperties(dodavatel, mappedDodavatel);
+        
+        return mappedDodavatel;   
+    }
+    
+    private Dodavatel getDodavatel(Long idDodavatel)
+    {
+        Optional<Dodavatel> dbDodavatel = dodavatelRepository.findById(idDodavatel);
+        if(dbDodavatel.isPresent()) {
+            Dodavatel dodavatel = dbDodavatel.get();
+            return dodavatel;
+        } else {
+            //vypis chybu
+            return null;
+        }
     }
 }

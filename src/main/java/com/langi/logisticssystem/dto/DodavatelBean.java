@@ -34,13 +34,6 @@ public class DodavatelBean {
 
     private String statSidla;
     
-    private List<Pobocka> pobocky;
-    
-    private List<Dodavka> dodavky;
-    
-    private List<Produkt> produkty;
-    
-    
     public long getId() {
         return id;
     }
@@ -113,27 +106,4 @@ public class DodavatelBean {
         this.statSidla = statSidla;
     }
 
-    public List<Pobocka> getPobocky() {
-        return pobocky;
-    }
-
-    public void setPobocky(List<Pobocka> pobocky) {
-        this.pobocky = pobocky;
-    }
-
-    public List<Dodavka> getDodavky() {
-        return dodavky;
-    }
-
-    public void setDodavky(List<Dodavka> dodavky) {
-        this.dodavky = dodavky;
-    }
-
-    public List<Produkt> getProdukty() {
-        return produkty;
-    }
-
-    public void setProdukty(List<Produkt> produkty) {
-        this.produkty = produkty;
-    }
 }

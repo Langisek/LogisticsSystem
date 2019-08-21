@@ -13,9 +13,5 @@ public class LogisticssystemApplication {
             
 	}
         
-        private void saveDodavatel(String nazev)
-        {
-            
-        }
 
 }

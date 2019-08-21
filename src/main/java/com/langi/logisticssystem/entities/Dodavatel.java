@@ -47,7 +47,7 @@ public class Dodavatel implements Serializable {
     
     private String statSidla;
 
-    @OneToMany(mappedBy = "dodavatelNaPobocce")
+    @OneToMany(mappedBy = "dodavatelPobocky")
     private List<Pobocka> pobocky;
     
     @OneToMany(mappedBy = "dodavatelDodavky")
